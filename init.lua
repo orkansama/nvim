@@ -427,24 +427,6 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false },
-        },
-      }
-
-      vim.cmd.colorscheme 'tokyonight-night'
-    end,
-  },
-
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
   {
     'echasnovski/mini.nvim',
     config = function()
