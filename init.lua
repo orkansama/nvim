@@ -427,6 +427,7 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
+    { 'Mofiqul/dracula.nvim', priority = 1000, config = function() require('dracula').setup { styles = {}, } vim.cmd.colorscheme 'dracula' end, },
   {
     'echasnovski/mini.nvim',
     config = function()
