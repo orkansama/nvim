@@ -13,8 +13,15 @@ rtp:prepend(lazypath)
 
 return require('lazy').setup({
   'NMAC427/guess-indent.nvim',
-require('kickstart.plugins.gitsigns'),
-require('kickstart.plugins.which-key'),
+  require 'plugins/gitsigns',
+  {
+    'folke/which-key.nvim',
+    config = function()
+      local opts = require "which-key"
+      require("which-key").setup(opts)
+    end,
+    event = 'VimEnter',
+  },
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
