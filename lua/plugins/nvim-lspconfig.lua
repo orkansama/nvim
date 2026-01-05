@@ -18,7 +18,7 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('<leader>gr', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+        map('<leader>ga', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
         map('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('<leader>gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
 
