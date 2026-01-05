@@ -44,10 +44,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window' })
+vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window' })
+vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window' })
+vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window' })
+
+vim.keymap.set('n', '<leader>wH', '<C-w>H', { desc = 'Move window to left' })
+vim.keymap.set('n', '<leader>wL', '<C-w>L', { desc = 'Move window to right' })
+vim.keymap.set('n', '<leader>wJ', '<C-w>J', { desc = 'Move window to bottom' })
+vim.keymap.set('n', '<leader>wK', '<C-w>K', { desc = 'Move window to top' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
