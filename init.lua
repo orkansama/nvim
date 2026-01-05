@@ -50,23 +50,19 @@ local function smart_move(dir)
   local curwin = vim.api.nvim_get_current_win()
   local target
 
-  -- prüfen ob Fenster existiert (nur Fokus!)
   vim.cmd('wincmd ' .. dir:lower())
   target = vim.api.nvim_get_current_win()
 
   if target == curwin then
-    -- kein Fenster → Split erzeugen
     if dir == 'H' or dir == 'L' then
       vim.cmd('vsplit')
     else
       vim.cmd('split')
     end
   else
-    -- zurück zum Original
     vim.api.nvim_set_current_win(curwin)
   end
 
-  -- jetzt sicher verschieben
   vim.cmd('wincmd ' .. dir)
 end
 
