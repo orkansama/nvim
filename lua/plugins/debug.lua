@@ -75,10 +75,29 @@ return {
       handlers = {},
       ensure_installed = {
         'delve',
-	"netcoredbg",
+        'netcoredbg',
       },
     }
 
+    dap.adapters.coreclr = {
+      type = 'executable',
+      command = 'netcoredbg',
+      args = { '--interpreter=vscode' },
+    }
+
+    dap.configurations.cs = {
+      {
+        name = 'Select .NET Project',
+        type = 'coreclr',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        console = 'integratedTerminal',
+      },
+    }
+    
     dapui.setup {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
