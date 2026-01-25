@@ -86,6 +86,8 @@ return {
       },
     }
 
+	-- These fields (name, type, request, program, cwd, console) are defined by the DAP standard.  
+	-- They are required for nvim-dap and not specific to Lua.
     dap.adapters.coreclr = {
       type = 'executable',
       command = 'netcoredbg',
