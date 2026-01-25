@@ -22,6 +22,13 @@ return {
       end,
       desc = 'Debug: Start/Continue',
     },
+	{
+	  '<S-F5>',
+	  function()
+		require('dap').terminate()
+	  end,
+	  desc = 'Debug: Stop/Terminate',
+	},
     {
       '<F11>',
       function()
