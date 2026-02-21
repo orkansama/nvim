@@ -22,13 +22,13 @@ return {
       end,
       desc = 'Debug: Start/Continue',
     },
-	{
-	  '<S-F5>',
-	  function()
-		require('dap').terminate()
-	  end,
-	  desc = 'Debug: Stop/Terminate',
-	},
+    {
+      '<S-F5>',
+      function()
+        require('dap').terminate()
+      end,
+      desc = 'Debug: Stop/Terminate',
+    },
     {
       '<F11>',
       function()
@@ -86,8 +86,8 @@ return {
       },
     }
 
-	-- These fields (name, type, request, program, cwd, console) are defined by the DAP standard.  
-	-- They are required for nvim-dap and not specific to Lua.
+    -- These fields (name, type, request, program, cwd, console) are defined by the DAP standard.
+    -- They are required for nvim-dap and not specific to Lua.
     dap.adapters.coreclr = {
       type = 'executable',
       command = 'netcoredbg',
@@ -106,7 +106,7 @@ return {
         console = 'integratedTerminal',
       },
     }
-    
+
     dapui.setup {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
