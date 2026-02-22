@@ -13,8 +13,14 @@ return {
   config = function()
     require('neotest').setup {
       adapters = {
-        require('neotest-vstest'),
+        require 'neotest-vstest',
       },
     }
   end,
+
+  vim.keymap.set(
+	  'n',
+	  '<leader>td',
+	  '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>',
+	  {desc = "Test [Debug]"}),
 }
