@@ -1,5 +1,9 @@
-  return {
-    'nvim-treesitter/nvim-treesitter',
-    lazy = false,
-    build = ':TSUpdate',
-  }
+return {
+  'nvim-treesitter/nvim-treesitter',
+  lazy = false,
+  build = ':TSUpdate',
+
+  config = function()
+    require('nvim-treesitter').install { 'c_sharp' }
+  end,
+}
