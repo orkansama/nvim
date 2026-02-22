@@ -18,9 +18,6 @@ return {
     }
   end,
 
-  vim.keymap.set(
-	  'n',
-	  '<leader>td',
-	  '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>',
-	  {desc = "Test [Debug]"}),
+  vim.keymap.set('n', '<leader>td', '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>', { desc = 'Test [Debug]' }),
+  vim.keymap.set('n', '<leader>tt', '<cmd>lua require("neotest").summary.open()<CR>', { desc = '[Test]Summary' }),
 }
