@@ -9,7 +9,7 @@ return {
   },
 
   -- IMPORTANT: U NEED TO MAKE TSInstall {language} for this to work
-  -- TSInstall c_sharp
+  -- :TSInstall c_sharp
   config = function()
     require('neotest').setup {
       adapters = {
