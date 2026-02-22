@@ -79,6 +79,8 @@ vim.keymap.set('n', '<leader>wL', function() smart_move('L') end, { desc = 'Move
 vim.keymap.set('n', '<leader>wJ', function() smart_move('J') end, { desc = 'Move window down (or create)' })
 vim.keymap.set('n', '<leader>wK', function() smart_move('K') end, { desc = 'Move window up (or create)' })
 
+vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', { desc = 'Open netrw([E]xplorer)' })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
