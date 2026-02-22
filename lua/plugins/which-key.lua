@@ -38,7 +38,7 @@ return {
 
     spec = {
       { '<leader>s', group = '[S]earch' },
-      { '<leader>t', group = '[T]oggle' },
+      { '<leader>t', group = '[T]est' },
       { '<leader>h', group = '[H]arpoon' },
       { '<leader>1', hidden = true },
       { '<leader>2', hidden = true },
