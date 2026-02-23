@@ -17,17 +17,15 @@ return {
     },
     'folke/lazydev.nvim',
   },
+
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
+  ---
   opts = {
     keymap = {
       preset = 'default',
       ['<C-y>'] = false,
-      ['<Enter>'] = {
-        function(cmp)
-          cmp.accept()
-        end,
-      },
+      ['<Enter>'] = { 'accept', 'fallback' },
     },
 
     appearance = {
