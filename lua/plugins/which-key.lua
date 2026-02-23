@@ -40,6 +40,7 @@ return {
       { '<leader>s', group = '[S]earch' },
       { '<leader>t', group = '[T]est' },
       { '<leader>h', group = '[H]arpoon' },
+      { '<leader>i', group = 'Cop[i]lot' },
       { '<leader>1', hidden = true },
       { '<leader>2', hidden = true },
       { '<leader>3', hidden = true },
