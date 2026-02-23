@@ -89,16 +89,13 @@ return {
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+    -- Richtig:
     local servers = {
       lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-          },
-        },
-        omnisharp = {},
+        settings = {},
+      },
+      omnisharp = {
+        cmd = { 'cmd', '/C', vim.fn.stdpath 'data' .. '\\mason\\bin\\OmniSharp.cmd' },
       },
     }
 
@@ -106,6 +103,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua',
     })
+
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
@@ -118,6 +116,11 @@ return {
           require('lspconfig')[server_name].setup(server)
         end,
       },
+    }
+
+    require('lspconfig').omnisharp.setup {
+      cmd = { 'dotnet', vim.fn.stdpath 'data' .. '\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll' },
+      capabilities = capabilities,
     }
   end,
 }
