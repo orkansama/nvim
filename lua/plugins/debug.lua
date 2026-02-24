@@ -111,6 +111,7 @@ return {
         stopAtEntry = false,
       },
     }
+
     dapui.setup {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
