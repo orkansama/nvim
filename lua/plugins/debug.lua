@@ -96,17 +96,21 @@ return {
 
     dap.configurations.cs = {
       {
-        name = 'Select .NET Project',
+        name = '.NET Aspire (AppHost)',
         type = 'coreclr',
         request = 'launch',
-        program = function()
-          return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        cwd = '${workspaceFolder}',
-        console = 'integratedTerminal',
+        program = 'dotnet',
+        args = {
+          'run',
+          '--project',
+          '${workspaceFolder}/CL.API.AppHost',
+          '--launch-profile',
+          'https',
+        },
+        cwd = '${workspaceFolder}/CL.API.AppHost',
+        stopAtEntry = false,
       },
     }
-
     dapui.setup {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
       controls = {
