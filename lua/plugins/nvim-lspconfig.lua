@@ -94,9 +94,7 @@ return {
       lua_ls = {
         settings = {},
       },
-      omnisharp = {
-        cmd = { 'cmd', '/C', vim.fn.stdpath 'data' .. '\\mason\\bin\\OmniSharp.cmd' },
-      },
+      omnisharp = { },
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
