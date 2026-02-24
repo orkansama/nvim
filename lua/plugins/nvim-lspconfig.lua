@@ -117,22 +117,5 @@ return {
         end,
       },
     }
-
-    if vim.fn.has 'win32' == 1 then
-      require('lspconfig').omnisharp.setup {
-        cmd = { 'dotnet', vim.fn.stdpath 'data' .. '\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll' },
-        capabilities = capabilities,
-        settings = {
-          RoslynExtensionsOptions = {
-            EnableAnalyzersSupport = true,
-            EnableImportCompletion = true,
-          },
-          MsBuild = {
-            LoadProjectsOnDemand = false,
-          },
-        },
-        enable_ms_build_load_projects_on_demand = false,
-      }
-    end
   end,
 }
