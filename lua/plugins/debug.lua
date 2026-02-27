@@ -86,14 +86,17 @@ return {
       },
     }
 
-    -- These fields (name, type, request, program, cwd, console) are defined by the DAP standard.
-    -- They are required for nvim-dap and not specific to Lua.
+	-- type and command are required.
+	-- coreclr is the name of the adapter that needs to be used in the configuration.
     dap.adapters.coreclr = {
       type = 'executable',
       command = 'netcoredbg',
       args = { '--interpreter=vscode' },
     }
 
+	-- name, request, type are REQUIRED.
+	-- The others are specific to the adapter that we defined in (dap.adapters.coreclr).
+	-- Depending on the adapter other fields can be required too.
     dap.configurations.cs = {
       {
         name = '.NET Aspire (AppHost)',
