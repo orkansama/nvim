@@ -41,6 +41,7 @@ return {
       { '<leader>t', group = '[T]est' },
       { '<leader>h', group = '[H]arpoon' },
       { '<leader>i', group = 'Cop[i]lot' },
+      { '<leader>l', group = '[L]ine' },
       { '<leader>1', hidden = true },
       { '<leader>2', hidden = true },
       { '<leader>3', hidden = true },
