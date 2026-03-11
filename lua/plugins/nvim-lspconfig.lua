@@ -104,6 +104,21 @@ return {
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      require('lspconfig').omnisharp.setup {
+        cmd = { 'dotnet', vim.fn.stdpath 'data' .. '\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll' },
+        capabilities = capabilities,
+        settings = {
+          RoslynExtensionsOptions = {
+            EnableAnalyzersSupport = true,
+            EnableImportCompletion = true,
+          },
+          MsBuild = {
+            LoadProjectsOnDemand = true,
+          },
+        },
+        enable_ms_build_load_projects_on_demand = true,
+      }
+
     require('mason-lspconfig').setup {
       ensure_installed = {},
       automatic_installation = false,
