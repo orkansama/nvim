@@ -94,13 +94,21 @@ return {
       lua_ls = {
         settings = {},
       },
-      omnisharp = { },
+      roslyn = {},
+      netcoredbg = {},
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua',
     })
+
+    require('mason').setup {
+      registries = {
+        'github:mason-org/mason-registry',
+        'github:Crashdummyy/mason-registry',
+      },
+    }
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
