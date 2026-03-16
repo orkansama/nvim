@@ -41,6 +41,9 @@ vim.o.scrolloff = 10
 
 vim.o.confirm = true
 
+vim.keymap.set('n', '<M-j>', '<cmd>move .+1<CR>==')
+vim.keymap.set('n', '<M-k>', '<cmd>move .-2<CR>==')
+
 vim.keymap.set('n', '<leader>n', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
