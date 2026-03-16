@@ -16,54 +16,61 @@ return {
   },
   keys = {
     {
-      '<F5>',
+      '<leader>dc',
+      function()
+        StartAppHostAndAttach()
+      end,
+      desc = 'Debug: Start AppHost and Attach',
+    },
+    {
+      '<leader>da',
       function()
         require('dap').continue()
       end,
       desc = 'Debug: Start/Continue',
     },
     {
-      '<S-F5>',
+      '<leader>ds',
       function()
         require('dap').terminate()
       end,
       desc = 'Debug: Stop/Terminate',
     },
     {
-      '<F11>',
+      '<leader>di',
       function()
         require('dap').step_into()
       end,
       desc = 'Debug: Step Into',
     },
     {
-      '<F10>',
+      '<leader>do',
       function()
         require('dap').step_over()
       end,
       desc = 'Debug: Step Over',
     },
     {
-      '<F12>',
+      '<leader>de',
       function()
         require('dap').step_out()
       end,
       desc = 'Debug: Step Out',
     },
     {
-      '<F9>',
+      '<leader>db',
       function()
         require('dap').toggle_breakpoint()
       end,
       desc = 'Debug: Toggle Breakpoint',
     },
-    {
-      '<leader>B',
-      function()
-        require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-      end,
-      desc = 'Debug: Set Breakpoint',
-    },
+    -- {
+    --   '<leader>B',
+    --   function()
+    --     require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+    --   end,
+    --   desc = 'Debug: Set Breakpoint',
+    -- },
     -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
     {
       '<F7>',
