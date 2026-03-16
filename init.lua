@@ -41,6 +41,7 @@ vim.o.scrolloff = 10
 
 vim.o.confirm = true
 
+-- Move-Commands
 vim.keymap.set('n', '<M-j>', '<cmd>move .+1<CR>==')
 vim.keymap.set('n', '<M-k>', '<cmd>move .-2<CR>==')
 
