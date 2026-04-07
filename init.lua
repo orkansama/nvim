@@ -6,6 +6,7 @@ vim.opt.smartindent = true
 vim.opt.expandtab = true
 
 vim.opt.relativenumber = true
+vim.opt.number = true
 
 vim.opt.showmode = false
 
