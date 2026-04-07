@@ -22,6 +22,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<leader>n', '<cmd>:nohlsearch<CR>')
 
+vim.keymap.set('n', '<leader>e', '<cmd>:Ex<CR>')
+
 local function smart_move(dir)
   local curwin = vim.api.nvim_get_current_win()
   local target
