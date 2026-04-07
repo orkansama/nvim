@@ -36,6 +36,11 @@ local function smart_move(dir)
   vim.cmd('wincmd ' .. dir)
 end
 
+vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window' })
+vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window' })
+vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window' })
+vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window' })
+
 vim.keymap.set('n', '<leader>wH', function() smart_move('H') end, { desc = 'Move window left (or create)' })
 vim.keymap.set('n', '<leader>wL', function() smart_move('L') end, { desc = 'Move window right (or create)' })
 vim.keymap.set('n', '<leader>wJ', function() smart_move('J') end, { desc = 'Move window down (or create)' })
