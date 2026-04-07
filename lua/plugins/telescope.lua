@@ -9,7 +9,7 @@ return {
         },
     config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Find Files' })
-        vim.keymap.set('n', '<leader>sg', '<cmd>:Telescope live_grep<CR>', { desc = 'Grep Workspace' })
+        vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Find Files' })
+        vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search Live Grep' })
     end
 }}
