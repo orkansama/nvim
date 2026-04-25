@@ -4,7 +4,6 @@ return {
         "mason-org/mason.nvim",
         "mason-org/mason-lspconfig.nvim"
     },
-    servers = {"lua_ls"};
     config = function()
         require('mason').setup()
         require("mason-lspconfig").setup
