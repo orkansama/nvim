@@ -23,5 +23,7 @@ return {
         vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action , { desc = 'LSP Action' })
 
         vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'LSP Error List' })
+        vim.keymap.set('n', 'üg', function() vim.diagnostic.jump({count= -1,float = true}) end)
+        vim.keymap.set('n', '+g', function() vim.diagnostic.jump({count= 1,float = true}) end)
     end
 }
