@@ -21,5 +21,7 @@ return {
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP implementation' })
         vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, { desc = 'LSP Rename' })
         vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action , { desc = 'LSP Action' })
+
+        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'LSP Error List' })
     end
 }
