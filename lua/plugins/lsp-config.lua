@@ -20,6 +20,6 @@ return {
 
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
         vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP implementation' })
-        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.rename, { desc = 'LSP Rename' })
+        vim.keymap.set('n', '<leader>gr', vim.lsp.buf.rename, { desc = 'LSP Rename' })
     end
 }
