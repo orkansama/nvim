@@ -12,6 +12,5 @@ return {
             ensure_installed = { "lua_ls" },
             automatic_enable = true,
         }
-        vim.lsp.config("*", { })
     end
 }
