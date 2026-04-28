@@ -13,6 +13,8 @@ vim.opt.showmode = false
 
 vim.opt.clipboard = 'unnamedplus'
 
+vim.treesitter.language.add('c_sharp', { path = "~/.config/nvim/tree-sitter-c_sharp.wasm" })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank({ timeout = 100 })
