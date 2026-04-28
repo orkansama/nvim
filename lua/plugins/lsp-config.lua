@@ -13,9 +13,14 @@ return {
         })
         require("mason-lspconfig").setup
         {
-            ensure_installed = { "lua_ls", "omnisharp" },
+            -- For new LSP's, just expand this list.
+            ensure_installed = { "lua_ls" }, -- Sadly roslyn does not work with mason-lspconfig :(
             automatic_enable = true,
         }
+
+        -- Manually configuring and enabling roslyn
+        vim.lsp.config("roslyn", {})
+        vim.lsp.enable("roslyn")
 
         -- Keymaps
         local telescope = require('telescope.builtin')
