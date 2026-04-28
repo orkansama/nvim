@@ -24,7 +24,11 @@ return {
             { name = 'nvim_lua' },
             { name = 'luasnip' },
             { name = 'buffer' },
-          })
+          }),
+
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        end,
       })
     end
 }
