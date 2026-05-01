@@ -14,7 +14,7 @@ return {
         require("mason-lspconfig").setup
         {
             -- For new LSP's, just expand this list.
-            ensure_installed = { "lua_ls" }, -- Sadly roslyn does not work with mason-lspconfig :(
+            ensure_installed = { "lua_ls", "hyprls"}, -- Sadly roslyn does not work with mason-lspconfig :(
             automatic_enable = true,
         }
 
