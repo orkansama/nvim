@@ -4,12 +4,13 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
-    "nsidorenco/neotest-vstest"
+    "Issafalcon/neotest-dotnet"
   },
+  -- Dont forget Treesitter!
   config = function ()
     require("neotest").setup({
       adapters = {
-        require("neotest-vstest")
+        require("neotest-dotnet")
       }})
   end
 }
