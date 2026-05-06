@@ -27,6 +27,10 @@ vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 vim.keymap.set('n', '<leader>e', '<cmd>:Ex<CR>')
 
+-- Move-Commands
+vim.keymap.set('n', '<M-j>', '<cmd>move .+1<CR>==')
+vim.keymap.set('n', '<M-k>', '<cmd>move .-2<CR>==')
+
 local function smart_move(dir)
   local curwin = vim.api.nvim_get_current_win()
   local target
