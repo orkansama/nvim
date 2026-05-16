@@ -29,7 +29,7 @@ return {
       status_formatter = nil, -- Use default
     }
 
-    vim.keymap.set('n', '<leader>jn', function() gitsigns.nav_hunk('next') end)
-    vim.keymap.set('n', '<leader>jp', function() gitsigns.nav_hunk('prev') end)
+    vim.keymap.set('n', '+c', function() gitsigns.nav_hunk('next') end)
+    vim.keymap.set('n', 'üc', function() gitsigns.nav_hunk('prev') end)
     end
 }
