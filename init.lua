@@ -31,6 +31,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<leader>n', '<cmd>:nohlsearch<CR>')
 
+vim.keymap.set('n', '<leader>bo', function() vim.cmd('silent! %bd|e#|bd#') end, { desc = 'Close other buffers' })
+
 vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 
 vim.keymap.set('n', '<leader>e', '<cmd>:Ex<CR>')
