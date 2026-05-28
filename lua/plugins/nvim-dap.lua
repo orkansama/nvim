@@ -1,9 +1,5 @@
 return {
     "mfussenegger/nvim-dap",
-    dependencies = {
-        "mason-org/mason.nvim",
-        "jay-babu/mason-nvim-dap.nvim",
-    },
     config = function()
         local dap = require('dap')
 
@@ -30,10 +26,6 @@ return {
             stopAtEntry = false,
           },
         }
-
-        require("mason-nvim-dap").setup({
-            ensure_installed = { "netcoredbg" },
-        })
 
     vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
     vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
