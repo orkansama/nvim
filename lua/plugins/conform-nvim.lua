@@ -1,17 +1,18 @@
 return {
-    "stevearc/conform.nvim",
-        config = function ()
-        local conform = require("conform");
-        conform.require("conform").setup({
-            formatters_by_ft = {
-                lua = { "stylua" },
-                python = { "isort", "black" },
-                rust = { "rustfmt", lsp_format = "fallback" },
-                javascript = { "prettierd", "prettier", stop_after_first = true },
-            },
-        })
+  'stevearc/conform.nvim',
+  config = function()
+    local conform = require 'conform'
+    conform.setup {
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        javascript = { 'prettierd' },
+        cs = { 'csharpier' },
+        c = { 'clang-format' },
+      },
+    }
 
-
-        vim.keymap.set('n', conform.format({ async = true, lsp_format = "never" }), '<cmd>:Cppath<CR>')
-    end
+    vim.keymap.set('n', '<leader>f', function()
+      require('conform').format { async = true, lsp_format = 'never' }
+    end)
+  end,
 }
