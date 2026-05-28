@@ -12,6 +12,7 @@ return {
         vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Find Files' })
         vim.keymap.set('n', '<leader>sm', builtin.treesitter, { desc = 'Search Find Files' })
         vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search Live Grep' })
+        vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search Help Pages' })
         vim.keymap.set('n', '<leader><leader>', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
     end
 }}
