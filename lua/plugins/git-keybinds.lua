@@ -2,7 +2,6 @@ return {
     "LionyxML/gitlineage.nvim",
     config = function()
         require("gitlineage").setup({
-            keymap = "nil",
             keys = {
                 next_commit = "+c",
                 prev_commit = "üc",
