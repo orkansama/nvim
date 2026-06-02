@@ -1,9 +1,14 @@
 return {
-  {
-    dir = '~/simple-file-compare.nvim',
-    config = function()
-      local plugin = require 'simple-file-compare'
-      plugin.setup()
-    end,
+  'orkansama/simple-file-compare.nvim',
+  dependencies = {
+    -- depending on your needs
+    'folke/snacks.nvim',
+    'nvim-mini/mini.pick',
   },
+  config = function()
+    local simpleFileCompare = require('simple-file-compare')
+    simpleFileCompare.setup({
+      mode = 'snacks', -- "snacks" | "vimUiSelect" | "miniPick"
+    })
+  end,
 }
