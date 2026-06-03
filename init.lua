@@ -1,57 +1,45 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
-vim.g.have_nerd_font = false
-
-vim.o.relativenumber = true
-
-vim.o.mouse = 'a'
-
-vim.o.showmode = false
-
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
-
-vim.o.breakindent = true
-
-vim.o.undofile = true
-
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
-vim.o.signcolumn = 'yes'
-
-vim.o.updatetime = 250
-
-vim.o.timeoutlen = 300
-
-vim.o.splitright = true
-
-vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
-vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.signcolumn = "yes"
 
-vim.o.inccommand = 'split'
-vim.o.cursorline = true
+vim.opt.relativenumber = true
+vim.opt.number = true
 
-vim.o.scrolloff = 10
+vim.opt.showmode = false
 
-vim.o.confirm = true
+vim.opt.clipboard = 'unnamedplus'
+
+vim.api.nvim_create_user_command("Cppath", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+vim.keymap.set('n', '<leader>c', '<cmd>:Cppath<CR>')
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 100 })
+  end,
+})
+
+
+vim.opt.hlsearch = true
+vim.keymap.set('n', '<leader>n', '<cmd>:nohlsearch<CR>')
+
+vim.keymap.set('n', '<leader>bo', function() vim.cmd('silent! %bd|e#|bd#') end, { desc = 'Close other buffers' })
+
+vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
+
+vim.keymap.set('n', '<leader>e', '<cmd>:Ex<CR>')
 
 -- Move-Commands
 vim.keymap.set('n', '<M-j>', '<cmd>move .+1<CR>==')
 vim.keymap.set('n', '<M-k>', '<cmd>move .-2<CR>==')
-
-vim.keymap.set('n', '<leader>n', '<cmd>nohlsearch<CR>')
-
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
-vim.keymap.set('n', '<leader>bo', function() vim.cmd('silent! %bd|e#|bd#') end, { desc = 'Close other buffers' })
-
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 local function smart_move(dir)
   local curwin = vim.api.nvim_get_current_win()
@@ -83,46 +71,23 @@ vim.keymap.set('n', '<leader>wL', function() smart_move('L') end, { desc = 'Move
 vim.keymap.set('n', '<leader>wJ', function() smart_move('J') end, { desc = 'Move window down (or create)' })
 vim.keymap.set('n', '<leader>wK', function() smart_move('K') end, { desc = 'Move window up (or create)' })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Ex<CR>', { desc = 'Open netrw([E]xplorer)' })
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
-})
-
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
   end
 end
+vim.opt.rtp:prepend(lazypath)
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
-
-require("lazy").setup("plugins", {
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+require("lazy").setup({ spec = {
+	{ import = "plugins" }
   },
-  change_detection = { enabled = false }
 })
