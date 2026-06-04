@@ -19,7 +19,7 @@ return {
     local formaterArray = {
       'clang-format',
       'stylua',
-      'csharpier',
+      -- 'csharpier',
     }
 
     local dapArray = {
