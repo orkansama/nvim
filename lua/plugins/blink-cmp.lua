@@ -15,12 +15,17 @@ return {
     completion = {
       documentation = {
         auto_show = true,
+        window = {
+          border = 'rounded',
+        },
       },
       menu = {
         draw = {
           columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon', gap = 1, 'kind' } },
           snippet_indicator = '~',
         },
+        border = 'single',
+        scrollbar = false,
       },
     },
 
