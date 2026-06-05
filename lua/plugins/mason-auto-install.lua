@@ -43,6 +43,8 @@ return {
     masonAutoInstall.setup { packages = combinedArray }
 
     -- Name of config has to be the same as from the LSP
+    vim.env.DOTNET_CLI_UI_LANGUAGE = "en"
+    vim.env.DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1"
     vim.lsp.config('roslyn', {})
 
     vim.lsp.config('lua-language-server', {
