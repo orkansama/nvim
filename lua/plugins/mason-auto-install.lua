@@ -7,8 +7,7 @@ return {
 
   -- Add new Mason-Utility:
   -- 1. Add to corresponding array
-  -- 2. If Utility is LSP, add a config
-  -- 3. Name of config has to be the same as from the LSP
+  -- 2. If Utility needs config, add "if" in loop
   config = function()
     local serverArray = {
       -- LSP
@@ -45,13 +44,20 @@ return {
     -- Name of config has to be the same as from the LSP
     vim.env.DOTNET_CLI_UI_LANGUAGE = "en"
     vim.env.DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1"
-    vim.lsp.config('roslyn', {})
 
-    vim.lsp.config('lua-language-server', {
-      cmd = { 'lua-language-server' },
-      filetypes = { 'lua' },
-    })
+    -- Configure all lsps from combinedArray
+    for _, lsp in ipairs(combinedArray) do
+        vim.lsp.config(lsp, {})
 
+        if (lsp == 'lua-language-server') then
+            vim.lsp.config(lsp, {
+              cmd = { 'lua-language-server' },
+              filetypes = { 'lua' },
+            })
+        end
+    end
+
+    -- enable all lsps from combinedArray
     vim.lsp.enable(serverArray)
   end,
 }
