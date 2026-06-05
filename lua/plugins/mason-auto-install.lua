@@ -7,7 +7,7 @@ return {
 
   -- Add new Mason-Utility:
   -- 1. Add to corresponding array
-  -- 2. If Utility needs config, add "if" in loop
+  -- 2. If LSP-Utility needs config, add "if" in loop
   config = function()
     local serverArray = {
       -- LSP
