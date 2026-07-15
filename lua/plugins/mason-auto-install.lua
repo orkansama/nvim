@@ -12,17 +12,17 @@ return {
     local serverArray = {
       -- LSP
       'lua-language-server',
-      'roslyn',
+      -- 'roslyn',
     }
 
     local formaterArray = {
-      'clang-format',
+      -- 'clang-format',
       'stylua',
-      'csharpier',
+      -- 'csharpier',
     }
 
     local dapArray = {
-      'netcoredbg',
+      -- 'netcoredbg',
     }
 
     local combinedArray = {}
@@ -42,19 +42,19 @@ return {
     masonAutoInstall.setup { packages = combinedArray }
 
     -- Name of config has to be the same as from the LSP
-    vim.env.DOTNET_CLI_UI_LANGUAGE = "en"
-    vim.env.DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1"
+    -- vim.env.DOTNET_CLI_UI_LANGUAGE = 'en'
+    -- vim.env.DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = '1'
 
     -- Configure all lsps from combinedArray
     for _, lsp in ipairs(combinedArray) do
-        vim.lsp.config(lsp, {})
+      vim.lsp.config(lsp, {})
 
-        if (lsp == 'lua-language-server') then
-            vim.lsp.config(lsp, {
-              cmd = { 'lua-language-server' },
-              filetypes = { 'lua' },
-            })
-        end
+      if lsp == 'lua-language-server' then
+        vim.lsp.config(lsp, {
+          cmd = { 'lua-language-server' },
+          filetypes = { 'lua' },
+        })
+      end
     end
 
     -- enable all lsps from combinedArray
