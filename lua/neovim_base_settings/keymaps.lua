@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 
-vim.keymap.set('n', '<leader>c', '<cmd>:Cppath<CR>')
+vim.keymap.set('n', '<leader>cp', '<cmd>:Cppath<CR>')
+
+vim.keymap.set('n', '<leader>cn', '<cmd>:Cpname<CR>')
 
 vim.keymap.set('n', '<leader>n', '<cmd>:nohlsearch<CR>')
 
