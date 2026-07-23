@@ -1,35 +1,45 @@
-return {
-    "lewis6991/gitsigns.nvim",
+if vim.g.vscode then
+  return {
+    -- disable
+  }
+else
+  return {
+    'lewis6991/gitsigns.nvim',
     config = function()
-    local gitsigns = require('gitsigns')
-    gitsigns.setup {
-      signs = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-      },
-      signs_staged = {
-        add          = { text = '┃' },
-        change       = { text = '┃' },
-        delete       = { text = '_' },
-        topdelete    = { text = '‾' },
-        changedelete = { text = '~' },
-        untracked    = { text = '┆' },
-      },
-      watch_gitdir = {
-        enable = true,
-        follow_files = true
-      },
-      attach_to_untracked = true,
-      sign_priority = 1,
-      update_debounce = 100,
-      status_formatter = nil, -- Use default
-    }
+      local gitsigns = require 'gitsigns'
+      gitsigns.setup {
+        signs = {
+          add = { text = '┃' },
+          change = { text = '┃' },
+          delete = { text = '_' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked = { text = '┆' },
+        },
+        signs_staged = {
+          add = { text = '┃' },
+          change = { text = '┃' },
+          delete = { text = '_' },
+          topdelete = { text = '‾' },
+          changedelete = { text = '~' },
+          untracked = { text = '┆' },
+        },
+        watch_gitdir = {
+          enable = true,
+          follow_files = true,
+        },
+        attach_to_untracked = true,
+        sign_priority = 1,
+        update_debounce = 100,
+        status_formatter = nil, -- Use default
+      }
 
-    vim.keymap.set('n', '+c', function() gitsigns.nav_hunk('next') end)
-    vim.keymap.set('n', 'üc', function() gitsigns.nav_hunk('prev') end)
-    end
-}
+      vim.keymap.set('n', '+c', function()
+        gitsigns.nav_hunk 'next'
+      end)
+      vim.keymap.set('n', 'üc', function()
+        gitsigns.nav_hunk 'prev'
+      end)
+    end,
+  }
+end
