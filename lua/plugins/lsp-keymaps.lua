@@ -6,7 +6,7 @@ if vim.g.vscode then
     end, { desc = 'LSP References' }),
 
     vim.keymap.set('n', '<leader>gd', function()
-      require('vscode').action ' editor.action.revealDefinition '
+      require('vscode').action 'editor.action.revealDefinition'
     end, { desc = 'LSP Definitions' }),
 
     vim.keymap.set('n', 'K', function()
@@ -40,8 +40,6 @@ if vim.g.vscode then
     vim.keymap.set('n', 'üg', function()
       require('vscode').action 'multiCommand.prevMarkerAndCenter'
     end, { desc = 'Go prev Error' }),
-
-    vim.diagnostic.conf { virtual_text = true, signs = false },
   }
 else
   return {
