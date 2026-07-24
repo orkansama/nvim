@@ -1,5 +1,4 @@
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>cp', '<cmd>:Cppath<CR>')
 vim.keymap.set('n', '<leader>cn', '<cmd>:Cpname<CR>')
 vim.keymap.set('n', '<M-j>', '<cmd>move .+1<CR>==')
 vim.keymap.set('n', '<leader>n', '<cmd>:nohlsearch<CR>')
@@ -10,6 +9,13 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>e', function()
     require('vscode').action 'workbench.explorer.fileView.focus'
   end)
+
+  vim.keymap.set('n', '<leader>cp', function()
+    require('vscode').action 'copyRelativeFilePath'
+    vim.notify('Copied relative FilePath!')
+  end)
 else
   vim.keymap.set('n', '<leader>e', '<cmd>:Ex<CR>')
+
+  vim.keymap.set('n', '<leader>cp', '<cmd>:Cppath<CR>')
 end
