@@ -1,6 +1,6 @@
 if vim.g.vscode then
   return {
-    vim.keymap.set('n', '<leader>ii', function()
+    vim.keymap.set({'n', 'v'}, '<leader>ii', function()
       require('vscode').action 'claudeVSCodeSidebarSecondary.focus'
     end),
   }
