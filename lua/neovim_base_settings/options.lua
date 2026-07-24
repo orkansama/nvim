@@ -17,3 +17,7 @@ vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.hlsearch = true
+
+vim.opt.smartcase = true
+
+vim.opt.ignorecase = true
