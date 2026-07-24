@@ -34,11 +34,13 @@ if vim.g.vscode then
     end, { desc = 'LSP Error List' }),
 
     vim.keymap.set('n', '+g', function()
-      require('vscode').action 'multiCommand.nextMarkerAndCenter'
+      require('vscode').action 'editor.action.marker.next'
+      require('vscode').action 'center-editor-window.center'
     end, { desc = 'Go next Error' }),
 
     vim.keymap.set('n', 'üg', function()
-      require('vscode').action 'multiCommand.prevMarkerAndCenter'
+      require('vscode').action 'editor.action.marker.prev'
+      require('vscode').action 'center-editor-window.center'
     end, { desc = 'Go prev Error' }),
   }
 else
