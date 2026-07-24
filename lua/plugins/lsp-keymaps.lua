@@ -2,7 +2,7 @@ if vim.g.vscode then
   return {
     -- disable
     vim.keymap.set('n', '<leader>gr', function()
-      require('vscode').action 'editor.action.goToReferences'
+      require('vscode').action 'code-telescope.fuzzy.lspRefs'
     end, { desc = 'LSP References' }),
 
     vim.keymap.set('n', '<leader>gd', function()
