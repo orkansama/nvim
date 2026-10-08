@@ -15,5 +15,6 @@ return {
         vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search Help Pages' })
         vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
         vim.keymap.set('n', '<leader>sc', builtin.resume, { desc = 'Search Current Buffer' })
+        vim.keymap.set('n', '<leader>s.', builtin.buffers, { desc = 'Fuzzy find in current buffer' }) 
     end
 }}
