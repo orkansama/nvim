@@ -3,6 +3,12 @@ return {
   name = 'catppuccin',
   priority = 1000,
   config = function()
-    vim.cmd.colorscheme "catppuccin-mocha"
+    require('catppuccin').setup {
+      no_italic = true,
+      no_bold = true,
+      no_underline = true,
+    }
+
+    vim.cmd.colorscheme 'catppuccin-mocha'
   end,
 }
