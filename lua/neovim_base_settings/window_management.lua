@@ -45,3 +45,5 @@ end, { desc = 'Move window up (or create)' })
 vim.keymap.set('n', '<leader>wr', function()
   vim.cmd 'silent! %bd|e#|bd#'
 end, { desc = 'Close other buffers' })
+
+vim.keymap.set('n', '<leader>wc', ':windo diffthis<CR>')
