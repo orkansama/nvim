@@ -9,9 +9,10 @@ return {
     }
   end,
 
-  vim.keymap.set({ 'n', 'v' }, '<leader>zl', '<cmd>:GitLineage<CR>', { desc = 'View Line History' }),
+  vim.keymap.set({ 'n' }, '<leader>zl', '<cmd>GitLineage <CR>', { desc = 'View Line History' }),
+  vim.keymap.set({ 'v' }, '<leader>zl', ':GitLineage<CR>', { desc = 'View Line History' }),
 
   vim.keymap.set('n', '<leader>zh', function()
-    vim.cmd("%GitLineage")
+    vim.cmd '%GitLineage'
   end, { desc = 'View File History' }),
 }
