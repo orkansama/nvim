@@ -33,6 +33,7 @@ return {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      min_keyword_length = 3,
     },
 
     -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
