@@ -32,15 +32,4 @@ return {
       }
     end,
   },
-  {
-    {
-      'f-person/git-blame.nvim',
-      config = function()
-        vim.g.gitblame_date_format = '%r'
-        vim.g.gitblame_message_when_not_committed = 'Not Commited Yet'
-        vim.g.gitblame_display_virtual_text = 0
-        vim.g.gitblame_delay = 1
-      end,
-    },
-  },
 }
