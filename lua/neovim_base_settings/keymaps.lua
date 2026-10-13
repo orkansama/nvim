@@ -23,3 +23,24 @@ vim.keymap.set('n', '#', '#zz', { silent = true })
 
 vim.keymap.set('n', 'g;', 'g;zz', { silent = true })
 vim.keymap.set('n', 'g,', 'g,zz', { silent = true })
+
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
+
+-- https://www.reddit.com/r/neovim/comments/1707ppd/anybody_actually_use_ctrld_and_ctrlu_to_scroll/
+-- thanks mr u/yendreij!
+local function lazykeys(keys)
+  keys = vim.api.nvim_replace_termcodes(keys, true, false, true)
+  return function()
+    local old = vim.o.lazyredraw
+    vim.o.lazyredraw = true
+    vim.api.nvim_feedkeys(keys, 'nx', false)
+    vim.o.lazyredraw = old
+  end
+end
+vim.keymap.set('n', '<c-d>', lazykeys '<c-d>zz', { noremap = true, silent = true })
+
+vim.keymap.set('n', '}', '}zz', { silent = true })
+vim.keymap.set('n', '{', '{zz', { silent = true })
+
+vim.keymap.set('n', ')', ')zz', { silent = true })
+vim.keymap.set('n', '(', '(zz', { silent = true })
