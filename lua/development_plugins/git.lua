@@ -70,11 +70,11 @@ local plugins = {
 }
 
 vim.keymap.set({ 'n' }, '<leader>zl', '<cmd>GitLineage <CR>', { desc = 'View Line History' })
-vim.keymap.set({ 'v' }, '<leader>zl', ':GitLineage<CR>', { desc = 'View Line History' })
-vim.keymap.set('n', '<leader>zh', '<cmd>%GitLineage<CR>', { desc = 'View File History' })
+vim.keymap.set({ 'v' }, '<leader>zl', ':GitLineage<CR>', { desc = 'Git Line History' })
+vim.keymap.set('n', '<leader>zh', '<cmd>%GitLineage<CR>', { desc = 'Git File History' })
 
-vim.keymap.set({ 'n', 'v' }, '<leader>zb', '<cmd>:FileCompareOpen<CR>', { desc = 'Compare Current File With Other Branch' })
-vim.keymap.set({ 'n', 'v' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Close Branch Comparison' })
+vim.keymap.set({ 'n' }, '<leader>zb', '<cmd>:FileCompareOpen<CR>', { desc = 'Open Branch Comparison' })
+vim.keymap.set({ 'n' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Close Branch Comparison' })
 
 vim.keymap.set('n', '+c', '<cmd>Gitsigns nav_hunk next<CR>', { desc = 'Go to next Hunk' })
 vim.keymap.set('n', 'üc', '<cmd>Gitsigns nav_hunk prev<CR>', { desc = 'Go to previous Hunk' })
