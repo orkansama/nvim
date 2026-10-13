@@ -15,3 +15,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank { timeout = 100 }
   end,
 })
+
+vim.api.nvim_create_autocmd({ "WinEnter", "VimResized" }, {
+  group = vim.api.nvim_create_augroup("SimpleZoomCenter", { clear = true }),
+  callback = function()
+    vim.cmd('normal! zz')
+  end,
+})
