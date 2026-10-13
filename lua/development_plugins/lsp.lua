@@ -21,5 +21,6 @@ return {
         end)
 
         vim.diagnostic.config({ virtual_text = true, signs = false })
+        vim.lsp.semantic_tokens.enable(false)
     end
 }

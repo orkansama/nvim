@@ -22,3 +22,9 @@ vim.api.nvim_create_autocmd({ "WinEnter", "VimResized" }, {
     vim.cmd('normal! zz')
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    pcall(vim.treesitter.start)
+  end,
+})
