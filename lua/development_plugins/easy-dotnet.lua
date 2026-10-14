@@ -25,7 +25,7 @@ return {
           run_all_tests_from_buffer = { lhs = '<leader>tr', desc = 'Run all tests in file' },
           get_build_errors = { lhs = '<leader>e', desc = 'get build errors' },
           peek_stack_trace_from_buffer = { lhs = '<leader>p', desc = 'peek stack trace from buffer' },
-          debug_test_from_buffer = { lhs = '<leader>d', desc = 'run test from buffer' },
+          debug_test_from_buffer = { lhs = '<leader>d', desc = 'debug test from buffer' },
           peek_stacktrace = { lhs = '<leader>p', desc = 'peek stacktrace of failed test' },
           expand_node = { lhs = 'E', desc = 'expand node' },
 
