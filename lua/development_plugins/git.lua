@@ -27,7 +27,7 @@ local plugins = {
         attach_to_untracked = true,
         sign_priority = 1,
         update_debounce = 100,
-        status_formatter = nil, -- Use default
+        status_formatter = nil,
       }
     end,
   },
@@ -56,14 +56,13 @@ local plugins = {
   {
     'orkansama/simple-file-compare.nvim',
     dependencies = {
-      -- depending on your needs
       'folke/snacks.nvim',
       'nvim-mini/mini.pick',
     },
     config = function()
       local simpleFileCompare = require 'simple-file-compare'
       simpleFileCompare.setup {
-        mode = 'snacks', -- "snacks" | "vimUiSelect" | "miniPick"
+        mode = 'snacks',
       }
     end,
   },
