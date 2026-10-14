@@ -3,6 +3,7 @@ return {
   dependencies = {
     'rcarriga/nvim-dap-ui',
     'nvim-neotest/nvim-nio',
+    'GustavEikaas/easy-dotnet.nvim',
   },
   config = function()
     local dap = require 'dap'

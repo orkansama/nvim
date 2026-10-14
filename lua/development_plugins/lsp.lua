@@ -16,6 +16,7 @@ return {
       },
       {
         'neovim/nvim-lspconfig',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
         config = function()
           local telescope = require 'telescope.builtin'
           vim.keymap.set('n', '<leader>gr', telescope.lsp_references, { desc = 'LSP References' })
