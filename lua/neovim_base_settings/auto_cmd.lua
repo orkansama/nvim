@@ -5,7 +5,7 @@ vim.api.nvim_create_user_command('Cppath', function()
 end, {})
 
 vim.api.nvim_create_user_command('Cpname', function()
-  local path = vim.fn.expand('%:t')
+  local path = vim.fn.expand '%:t'
   vim.fn.setreg('+', path)
   vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
@@ -16,10 +16,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "WinEnter", "VimResized" }, {
-  group = vim.api.nvim_create_augroup("SimpleZoomCenter", { clear = true }),
+vim.api.nvim_create_autocmd({ 'WinEnter', 'VimResized' }, {
+  group = vim.api.nvim_create_augroup('SimpleZoomCenter', { clear = true }),
   callback = function()
-    vim.cmd('normal! zz')
+    vim.cmd 'normal! zz'
   end,
 })
 

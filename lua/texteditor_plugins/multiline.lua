@@ -8,7 +8,7 @@ return {
   vim.keymap.set({ 'n', 'v' }, '<leader>la', '<Plug>(VM-Visual-All)', { desc = 'Select all occurrences' }),
 
   vim.keymap.set('x', '<leader>lc', function()
-    return '*:g//norm ' .. (math.abs(vim.fn.line('v') - vim.fn.line('.')) + 1) .. 'gcc<CR>'
+    return '*:g//norm ' .. (math.abs(vim.fn.line 'v' - vim.fn.line '.') + 1) .. 'gcc<CR>'
   end, { expr = true, remap = true, desc = 'Comment visual mode occurrences' }),
 
   vim.g.VM_theme == 'iceblue',
