@@ -23,3 +23,5 @@ vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
 vim.opt.wrap = false
+
+vim.opt.undofile = true
