@@ -6,6 +6,7 @@ local plugins = {
       { 'neovim/nvim-lspconfig', dependencies = { 'nvim-telescope/telescope.nvim' } },
       { 'owallb/mason-auto-install.nvim' },
     },
+    opts = {}
   },
   {
     'stevearc/conform.nvim',
