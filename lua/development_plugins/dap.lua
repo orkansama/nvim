@@ -8,6 +8,7 @@ return {
   config = function()
     local dap = require 'dap'
 
+    -- Aspire config
     if vim.fn.getcwd():find('api', 1, true) then
       local apphost_job
       vim.keymap.set('n', '<leader>da', function()
@@ -34,6 +35,7 @@ return {
           end
         end
       end, { desc = 'Debug: Ctrl+C AppHost and Terminate debugger' })
+    -- Normal config
     else
       vim.keymap.set('n', '<leader>da', function()
         dap.continue()
