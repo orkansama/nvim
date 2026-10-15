@@ -75,7 +75,14 @@ vim.keymap.set('n', '<leader>zh', '<cmd>%GitLineage<CR>', { desc = 'Git File His
 vim.keymap.set({ 'n' }, '<leader>zb', '<cmd>:FileCompareOpen<CR>', { desc = 'Open Branch Comparison' })
 vim.keymap.set({ 'n' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Close Branch Comparison' })
 
-vim.keymap.set('n', '+c', '<cmd>Gitsigns nav_hunk next<CR>zz', { desc = 'Go to next Hunk' })
-vim.keymap.set('n', 'üc', '<cmd>Gitsigns nav_hunk prev<CR>zz', { desc = 'Go to previous Hunk' })
+vim.keymap.set('n', '+c', function()
+    vim.cmd 'Gitsigns nav_hunk next'
+    vim.cmd 'normal! zz'
+end, { desc = 'Go to next Hunk' })
+
+vim.keymap.set('n', 'üc', function()
+    vim.cmd 'Gitsigns nav_hunk prev'
+    vim.cmd 'normal! zz'
+end, { desc = 'Go to previous Hunk' })
 
 return plugins
