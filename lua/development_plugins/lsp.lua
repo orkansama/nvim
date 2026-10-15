@@ -52,5 +52,6 @@ vim.diagnostic.config {
 }
 
 vim.lsp.semantic_tokens.enable(false)
+---
 
 return plugins
