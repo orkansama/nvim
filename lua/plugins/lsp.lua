@@ -4,7 +4,7 @@ local plugins = {
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
       { 'neovim/nvim-lspconfig', dependencies = { 'nvim-telescope/telescope.nvim' } },
-      { 'owallb/mason-auto-install.nvim' }
+      { 'owallb/mason-auto-install.nvim' },
     },
   },
   {
