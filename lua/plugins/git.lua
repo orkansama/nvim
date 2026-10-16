@@ -78,11 +78,11 @@ vim.keymap.set({ 'n' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Cl
 vim.keymap.set('n', '+c', function()
     vim.cmd 'Gitsigns nav_hunk next'
     vim.cmd 'normal! zz'
-end, { desc = 'Go to next Hunk' })
+end, { desc = 'Next Hunk' })
 
 vim.keymap.set('n', 'üc', function()
     vim.cmd 'Gitsigns nav_hunk prev'
     vim.cmd 'normal! zz'
-end, { desc = 'Go to previous Hunk' })
+end, { desc = 'Previous Hunk' })
 
 return plugins

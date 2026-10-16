@@ -37,15 +37,15 @@ vim.keymap.set('n', '<leader>f', function()
 end)
 
 -- Misc
-vim.keymap.set('n', 'üg', function()
-  vim.diagnostic.jump { count = -1, float = true }
-  vim.cmd 'normal! zz'
-end)
-
 vim.keymap.set('n', '+g', function()
   vim.diagnostic.jump { count = 1, float = true }
   vim.cmd 'normal! zz'
-end)
+end, { desc = 'Next Error' })
+
+vim.keymap.set('n', 'üg', function()
+  vim.diagnostic.jump { count = -1, float = true }
+  vim.cmd 'normal! zz'
+end, { desc = 'Prev Error' })
 
 vim.diagnostic.config {
   virtual_text = true,
