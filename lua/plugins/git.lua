@@ -46,10 +46,11 @@ local plugins = {
     {
       'f-person/git-blame.nvim',
       config = function()
-        vim.g.gitblame_date_format = '%r'
+        vim.g.gitblame_date_format = '%r %X'
         vim.g.gitblame_message_when_not_committed = 'Not Commited Yet'
         vim.g.gitblame_display_virtual_text = 0
         vim.g.gitblame_delay = 1
+        vim.g.gitblame_message_template =  '<author> (<date>)'
       end,
     },
   },
@@ -76,13 +77,17 @@ vim.keymap.set({ 'n' }, '<leader>zb', '<cmd>:FileCompareOpen<CR>', { desc = 'Ope
 vim.keymap.set({ 'n' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Close Branch Comparison' })
 
 vim.keymap.set('n', '+c', function()
-    vim.cmd 'Gitsigns nav_hunk next'
+  vim.cmd 'Gitsigns nav_hunk next'
+  vim.defer_fn(function()
     vim.cmd 'normal! zz'
+  end, 50)
 end, { desc = 'Next Hunk' })
 
 vim.keymap.set('n', 'üc', function()
-    vim.cmd 'Gitsigns nav_hunk prev'
+  vim.cmd 'Gitsigns nav_hunk prev'
+  vim.defer_fn(function()
     vim.cmd 'normal! zz'
+  end, 50)
 end, { desc = 'Previous Hunk' })
 
 return plugins
