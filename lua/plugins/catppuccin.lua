@@ -6,7 +6,7 @@ return {
     require('catppuccin').setup {
       no_italic = true,
       no_bold = true,
-      no_underline = true,
+      no_underline = false,
     }
 
     vim.cmd.colorscheme 'catppuccin-mocha'

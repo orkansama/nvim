@@ -6,7 +6,7 @@ local plugins = {
       { 'neovim/nvim-lspconfig', dependencies = { 'nvim-telescope/telescope.nvim' } },
       { 'owallb/mason-auto-install.nvim' },
     },
-    opts = {}
+    opts = {},
   },
   {
     'stevearc/conform.nvim',
@@ -50,6 +50,7 @@ end, { desc = 'Prev Error' })
 vim.diagnostic.config {
   virtual_text = true,
   signs = false,
+  underline = false,
 }
 
 vim.lsp.semantic_tokens.enable(false)
