@@ -16,9 +16,6 @@ vim.api.nvim_create_autocmd('User', {
         packages = {
           {
             'roslyn-language-server',
-            dependencies = {
-              'csharpier',
-            },
             filetypes = {},
           },
           {
