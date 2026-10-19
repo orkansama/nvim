@@ -76,14 +76,14 @@ vim.keymap.set('n', '<leader>zh', '<cmd>%GitLineage<CR>', { desc = 'Git File His
 vim.keymap.set({ 'n' }, '<leader>zb', '<cmd>:FileCompareOpen<CR>', { desc = 'Open Branch Comparison' })
 vim.keymap.set({ 'n' }, '<leader>zc', '<cmd>:FileCompareClose<CR>', { desc = 'Close Branch Comparison' })
 
-vim.keymap.set('n', '+c', function()
+vim.keymap.set('n', '+h', function()
   vim.cmd 'Gitsigns nav_hunk next'
   vim.defer_fn(function()
     vim.cmd 'normal! zz'
   end, 50)
 end, { desc = 'Next Hunk' })
 
-vim.keymap.set('n', 'üc', function()
+vim.keymap.set('n', 'üh', function()
   vim.cmd 'Gitsigns nav_hunk prev'
   vim.defer_fn(function()
     vim.cmd 'normal! zz'
