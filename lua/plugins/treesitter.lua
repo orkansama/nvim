@@ -8,6 +8,14 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
     branch = 'main',
     config = function()
+      vim.keymap.set({ 'x', 'o' }, 'an', function()
+        require('vim.treesitter._select').select_parent(vim.v.count1)
+      end, { desc = 'Expand treesitter selection' })
+
+      vim.keymap.set({ 'x', 'o' }, 'in', function()
+        require('vim.treesitter._select').select_child(vim.v.count1)
+      end, { desc = 'Shrink treesitter selection' })
+
       vim.keymap.set({ 'x', 'o' }, 'af', function()
         require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
       end)
