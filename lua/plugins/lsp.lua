@@ -50,7 +50,7 @@ end, { desc = 'Prev Error' })
 vim.diagnostic.config {
   virtual_text = true,
   signs = false,
-  underline = false,
+  underline = true,
 }
 
 vim.lsp.semantic_tokens.enable(false)
