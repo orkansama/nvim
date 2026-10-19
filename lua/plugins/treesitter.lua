@@ -11,7 +11,6 @@ return {
       vim.keymap.set({ 'x', 'o' }, 'an', function()
         require('vim.treesitter._select').select_parent(vim.v.count1)
       end, { desc = 'Expand treesitter selection' })
-
       vim.keymap.set({ 'x', 'o' }, 'in', function()
         require('vim.treesitter._select').select_child(vim.v.count1)
       end, { desc = 'Shrink treesitter selection' })
