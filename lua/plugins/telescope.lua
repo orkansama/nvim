@@ -8,8 +8,16 @@ return {
     },
     config = function()
       local builtin = require 'telescope.builtin'
+      local sorter = require 'telescope.sorters'
+
+      vim.keymap.set('n', '<leader>sm', function()
+        builtin.treesitter {
+          sorter = sorter.get_substr_matcher(),
+          prompt_title = 'Treesitter (Sorted by Line Number)',
+        }
+      end, { desc = 'Treesitter symbols by line number' })
+
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Find Files' })
-      vim.keymap.set('n', '<leader>sm', builtin.treesitter, { desc = 'Search Treesitter Symbols' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Search Live Grep' })
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = 'Search Help Pages' })
       vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
