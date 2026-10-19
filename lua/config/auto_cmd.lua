@@ -28,3 +28,9 @@ vim.api.nvim_create_autocmd('FileType', {
     pcall(vim.treesitter.start)
   end,
 })
+
+-- https://www.reddit.com/r/neovim/comments/1flr88l/comment/lo8yoqh/
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
