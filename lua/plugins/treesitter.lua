@@ -21,11 +21,11 @@ return {
         require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects')
       end)
 
-      vim.keymap.set({ 'n', 'x', 'o' }, '+m', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, '+f', function()
         require('nvim-treesitter-textobjects.move').goto_next_start('@function.outer', 'textobjects')
         vim.cmd 'normal! zz'
       end, { desc = 'Tresitter: Next Function' })
-      vim.keymap.set({ 'n', 'x', 'o' }, 'üm', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, 'üf', function()
         require('nvim-treesitter-textobjects.move').goto_previous_start('@function.outer', 'textobjects')
         vim.cmd 'normal! zz'
       end, { desc = 'Tresitter: Prev Function' })
