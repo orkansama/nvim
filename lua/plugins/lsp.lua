@@ -15,7 +15,7 @@ local plugins = {
       conform.setup {
         formatters_by_ft = {
           lua = { 'stylua' },
-          cs = { 'csharpier' },
+          cs = { lsp_format = 'prefer', name = 'roslyn_ls' },
         },
       }
     end,
@@ -33,7 +33,7 @@ vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, { desc = 'LSP Action'
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'LSP Error List' })
 vim.keymap.set('n', '<leader>f', function()
-  require('conform').format { async = true, lsp_format = 'never' }
+  require('conform').format { async = true }
 end)
 
 -- Misc
