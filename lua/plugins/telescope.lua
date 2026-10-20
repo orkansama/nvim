@@ -23,6 +23,9 @@ return {
       vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
       vim.keymap.set('n', '<leader>sc', builtin.resume, { desc = 'Search Resume' })
       vim.keymap.set('n', '<leader>s.', builtin.buffers, { desc = 'Search Open Buffers' })
+      vim.keymap.set({ 'n', 'v' }, '<leader>ss', function()
+        require('telescope.builtin').grep_string { word_match = '-w' }
+      end, { desc = 'Find exact word under cursor' })
     end,
   },
 }
