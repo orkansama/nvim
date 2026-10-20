@@ -20,13 +20,20 @@ local plugins = {
       }
     end,
   },
+  {
+    'folke/snacks.nvim',
+    opts = {
+      picker = { enabled = true },
+    },
+  },
 }
 
 if vim.fn.getcwd():find('api', 1, true) then
-    vim.keymap.set('n', '<C-b>', '<cmd>Dotnet build default quickfix<CR>', { desc = 'dotnet build' })
+  vim.keymap.set('n', '<C-b>', '<cmd>Dotnet build default quickfix<CR>', { desc = 'dotnet build' })
 end
 
 local telescope = require 'telescope.builtin'
+
 vim.keymap.set('n', '<leader>gr', telescope.lsp_references, { desc = 'LSP References' })
 vim.keymap.set('n', '<leader>gd', telescope.lsp_definitions, { desc = 'LSP Definitions' })
 
