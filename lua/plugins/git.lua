@@ -58,7 +58,6 @@ local plugins = {
     'orkansama/simple-file-compare.nvim',
     dependencies = {
       'folke/snacks.nvim',
-      'nvim-mini/mini.pick',
     },
     config = function()
       local simpleFileCompare = require 'simple-file-compare'
