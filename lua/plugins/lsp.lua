@@ -65,6 +65,15 @@ vim.diagnostic.config {
 }
 
 vim.lsp.semantic_tokens.enable(false)
+
+vim.lsp.config('roslyn_ls', {
+  settings = {
+    ['csharp|background_analysis'] = {
+      dotnet_analyzer_diagnostics_scope = 'openFiles',
+      dotnet_compiler_diagnostics_scope = 'openFiles',
+    },
+  },
+})
 ---
 
 return plugins
