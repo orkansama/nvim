@@ -8,6 +8,8 @@ return {
       },
       debugger = {
         console = 'internalConsole',
+        apply_value_converters = false,
+        mem_cpu_usage = false,
       },
       test_runner = {
         mappings = {

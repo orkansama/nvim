@@ -45,6 +45,9 @@ return {
       end, { desc = 'Debug: Stop/Terminate' })
     end
 
+    vim.keymap.set('n', '<leader>dc', function()
+      dap.continue()
+    end, { desc = 'Debug: Continue' })
     vim.keymap.set('n', '<leader>dr', function()
       dap.clear_breakpoints()
     end, { desc = 'Debug: Remove all Breakpoints' })
