@@ -36,8 +36,8 @@ local plugins = {
     config = function()
       require('gitlineage').setup {
         keys = {
-          next_commit = '+c',
-          prev_commit = 'üc',
+          next_commit = '+h',
+          prev_commit = 'üh',
         },
       }
     end,
