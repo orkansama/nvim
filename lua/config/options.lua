@@ -25,3 +25,6 @@ vim.opt.ignorecase = true
 vim.opt.wrap = false
 
 vim.opt.undofile = true
+
+vim.opt.showtabline = 2
+

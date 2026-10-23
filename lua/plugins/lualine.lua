@@ -13,19 +13,23 @@ return {
         options = {
           component_separators = '',
           section_separators = { left = '', right = '' },
+          refresh = {
+            tabline = 1,
+          },
         },
         sections = {
           lualine_a = {
             { 'mode', separator = { left = '' }, right_padding = 2 },
           },
           lualine_b = {
-            { 'filename' },
             { 'branch' },
           },
           lualine_c = {
             '%=',
           },
-          lualine_x = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } },
+          lualine_x = {
+            { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available, color = { fg = 'white' } },
+          },
           lualine_y = {
             { get_last_search_from_register, icon = { ' =' }, color = { fg = '#a6e3a1', gui = 'bold' } },
             { 'searchcount', color = { fg = '#a6e3a1', gui = 'bold' }, padding = { left = 0 } },
@@ -45,15 +49,15 @@ return {
           },
           lualine_z = {},
         },
-        inactive_sections = {
-          lualine_a = { 'filename' },
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = { 'location' },
+        tabline = {
+          lualine_c = {
+            '%=',
+            {
+              'filename',
+              path = 1,
+            },
+          },
         },
-        tabline = {},
         extensions = {},
       }
     end,
