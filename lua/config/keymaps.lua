@@ -11,6 +11,8 @@ vim.keymap.set('t', '<Esc><Esc>', [[<C-\><C-n>]])
 vim.keymap.set('n', 'n', 'nzz', { silent = true })
 vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 
+vim.keymap.set({ 'v', 'n' }, '<leader>/', '/\\u<CR>', { silent = true })
+
 vim.keymap.set('n', '<C-o>', '<C-o>zz', { silent = true })
 vim.keymap.set('n', '<C-i>', '<C-i>zz', { silent = true })
 
