@@ -9,11 +9,18 @@ return {
     config = function()
       local builtin = require 'telescope.builtin'
       local sorter = require 'telescope.sorters'
+      local themes = require 'telescope.themes'
 
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Find Files' })
       vim.keymap.set('n', '<leader>sc', builtin.resume, { desc = 'Search Resume' })
       vim.keymap.set('n', '<leader>s.', builtin.buffers, { desc = 'Search Open Buffers' })
       vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
+
+      vim.keymap.set('n', '<leader>sr', function()
+        builtin.oldfiles(themes.get_dropdown {
+          only_cwd = true,
+        })
+      end, { desc = 'Search Recent Files' })
 
       vim.keymap.set('n', '<leader>sm', function()
         builtin.treesitter {
