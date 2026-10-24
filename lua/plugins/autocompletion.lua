@@ -34,6 +34,9 @@ return {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
       min_keyword_length = 3,
     },
+    cmdline = {
+      enabled = false,
+    },
 
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
