@@ -13,6 +13,7 @@ return {
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'Search Find Files' })
       vim.keymap.set('n', '<leader>sc', builtin.resume, { desc = 'Search Resume' })
       vim.keymap.set('n', '<leader>s.', builtin.buffers, { desc = 'Search Open Buffers' })
+      vim.keymap.set('n', '<leader>sb', builtin.current_buffer_fuzzy_find, { desc = 'Search Current Buffer' })
 
       vim.keymap.set('n', '<leader>sm', function()
         builtin.treesitter {
@@ -20,12 +21,6 @@ return {
           prompt_title = 'Treesitter (Sorted by Line Number)',
         }
       end, { desc = 'Treesitter symbols by line number' })
-
-      vim.keymap.set('n', '<leader>sb', function()
-        builtin.current_buffer_fuzzy_find {
-          previewer = false,
-        }
-      end, { desc = 'Search Current Buffer' })
 
       vim.keymap.set('n', '<leader>sg', function()
         builtin.live_grep { additional_args = { '--fixed-strings' } }
