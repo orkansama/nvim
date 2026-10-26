@@ -34,3 +34,12 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   pattern = "*",
   command = "if mode() != 'c' | checktime | endif",
 })
+
+-- https://www.reddit.com/r/neovim/comments/1qgtu8v/comment/o0ftp97/
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  callback = function()
+    if vim.bo.buftype == 'help' then
+      vim.cmd.wincmd 'T'
+    end
+  end,
+})
