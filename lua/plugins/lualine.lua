@@ -1,7 +1,7 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', 'f-person/git-blame.nvim' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', 'f-person/git-blame.nvim', 'yavorski/lualine-macro-recording.nvim' },
     config = function()
       function get_last_search_from_register()
         local last_search = vim.fn.getreg '/'
@@ -19,7 +19,7 @@ return {
         },
         sections = {
           lualine_a = {
-            { 'mode', separator = { left = '', right = ''  }, right_padding = 2 },
+            { 'mode', separator = { left = '', right = '' }, right_padding = 2 },
           },
           lualine_b = {
             { 'branch' },
@@ -31,6 +31,7 @@ return {
             { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available, color = { fg = 'white' } },
           },
           lualine_y = {
+            { 'macro_recording' },
             { get_last_search_from_register, icon = { ' =' }, color = { fg = '#a6e3a1', gui = 'bold' } },
             { 'searchcount', color = { fg = '#a6e3a1', gui = 'bold' }, padding = { left = 0 } },
             {
