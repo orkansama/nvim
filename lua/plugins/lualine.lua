@@ -42,7 +42,7 @@ return {
                 done = '',
                 separator = ' | ',
               },
-              ignore_lsp = {},
+              ignore_lsp = { 'stylua' },
               show_name = true,
             },
             { 'diagnostics' },
