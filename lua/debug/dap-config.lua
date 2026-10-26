@@ -48,6 +48,6 @@ return {
       dapui.close()
     end
 
-    require('debug.dap-keymaps')()
+     require 'debug.dap-keymaps'()
   end,
 }

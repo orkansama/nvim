@@ -3,41 +3,49 @@ return function()
   local dapui = require 'dapui'
 
   function attachDebugger()
-    vim.wait(2000)
     vim.cmd 'Dotnet debug attach'
   end
 
   function startApplication()
     vim.cmd 'rightbelow 10new'
-    apphost_job = vim.fn.jobstart('dotnet run --project *.AppHost', {
+    local startApplication_terminal_win = vim.api.nvim_get_current_win()
+    startApplication_terminal_job = vim.fn.jobstart('dotnet run --project *.AppHost', {
       term = true,
       on_stdout = function(_, data)
         if table.concat(data):find('Distributed application started', 1, true) then
+          vim.wait(2000)
           attachDebugger()
+
+          if vim.api.nvim_win_is_valid(startApplication_terminal_win) then
+            vim.api.nvim_win_close(startApplication_terminal_win, { force = true })
+          end
         end
       end,
     })
   end
 
   function killApplication()
-    if apphost_job then
-      vim.fn.chansend(apphost_job, '\x03')
-      apphost_job = nil
-    end
-    dap.terminate()
+    if startApplication_terminal_job then
+      vim.fn.chansend(startApplication_terminal_job, '\x03')
+      startApplication_terminal_job = nil
 
-    for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.api.nvim_buf_get_name(buffer):find 'term' then
-        vim.api.nvim_buf_delete(buffer, { force = true })
+      for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_get_name(buffer):find 'term' then
+          vim.api.nvim_buf_delete(buffer, { force = true })
+        end
       end
     end
+
+    dap.terminate()
   end
 
-  local projectHasApiInPath = vim.fn.getcwd():find('api', 1, true)
+  local nvimCmdContainsApi = vim.fn.getcwd():find('api', 1, true)
 
-  if projectHasApiInPath then
+  if nvimCmdContainsApi then
     vim.keymap.set('n', '<leader>da', function()
-      if apphost_job then
+      if startApplication_terminal_job and not dap.session() then
+        attachDebugger()
+      elseif startApplication_terminal_job then
         dap.continue()
       else
         startApplication()
