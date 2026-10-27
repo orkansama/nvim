@@ -18,6 +18,16 @@ local function smart_move(dir)
   vim.cmd('wincmd ' .. dir)
 end
 
+vim.keymap.set('n', '<leader>w<', '<cmd>vertical resize -20<CR>', { desc = 'Shrink window width' })
+
+vim.keymap.set('n', '<leader>w>', '<cmd>vertical resize +20<CR>', { desc = 'Increase window width' })
+
+vim.keymap.set('n', '<leader>w+', '<cmd>horizontal resize -20<CR>', { desc = 'Shrink horizontal window' })
+
+vim.keymap.set('n', '<leader>w-', '<cmd>horizontal resize +20<CR>', { desc = 'Increase horizontal window' })
+
+vim.keymap.set('n', '<leader>w0', '<cmd>wincmd =<CR>', { desc = 'Make all Windows equall' })
+
 vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window' })
 
 vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window' })
