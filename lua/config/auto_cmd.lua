@@ -43,3 +43,9 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd('VimResized', {
+  callback = function()
+    vim.cmd 'silent! wincmd ='
+  end,
+})
