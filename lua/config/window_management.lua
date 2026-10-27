@@ -1,22 +1,28 @@
-local function smart_move(dir)
-  local curwin = vim.api.nvim_get_current_win()
-  local target
+-- Split move
+vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window' })
 
-  vim.cmd('wincmd ' .. dir:lower())
-  target = vim.api.nvim_get_current_win()
+vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window' })
 
-  if target == curwin then
-    if dir == 'H' or dir == 'L' then
-      vim.cmd 'vsplit'
-    else
-      vim.cmd 'split'
-    end
-  else
-    vim.api.nvim_set_current_win(curwin)
-  end
+vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window' })
 
-  vim.cmd('wincmd ' .. dir)
-end
+vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window' })
+
+-- Split create
+vim.keymap.set('n', '<leader>wH', function()
+  vim.cmd 'leftabove vsplit'
+end, { desc = 'Create left window' })
+
+vim.keymap.set('n', '<leader>wL', function()
+  vim.cmd 'rightbelow vsplit'
+end, { desc = 'Create right window' })
+
+vim.keymap.set('n', '<leader>wJ', function()
+  vim.cmd 'belowright split'
+end, { desc = 'Create lower window' })
+
+vim.keymap.set('n', '<leader>wK', function()
+  vim.cmd 'aboveleft split'
+end, { desc = 'Create upper window' })
 
 vim.keymap.set('n', '<leader>w<', '<cmd>vertical resize -20<CR>', { desc = 'Shrink window width' })
 
@@ -27,30 +33,6 @@ vim.keymap.set('n', '<leader>w+', '<cmd>horizontal resize -20<CR>', { desc = 'Sh
 vim.keymap.set('n', '<leader>w-', '<cmd>horizontal resize +20<CR>', { desc = 'Increase horizontal window' })
 
 vim.keymap.set('n', '<leader>w0', '<cmd>wincmd =<CR>', { desc = 'Make all Windows equall' })
-
-vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Focus left window' })
-
-vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Focus right window' })
-
-vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Focus lower window' })
-
-vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Focus upper window' })
-
-vim.keymap.set('n', '<leader>wH', function()
-  smart_move 'H'
-end, { desc = 'Move window left (or create)' })
-
-vim.keymap.set('n', '<leader>wL', function()
-  smart_move 'L'
-end, { desc = 'Move window right (or create)' })
-
-vim.keymap.set('n', '<leader>wJ', function()
-  smart_move 'J'
-end, { desc = 'Move window down (or create)' })
-
-vim.keymap.set('n', '<leader>wK', function()
-  smart_move 'K'
-end, { desc = 'Move window up (or create)' })
 
 vim.keymap.set('n', '<leader>wr', function()
   vim.cmd 'silent! %bd|e#|bd#'
