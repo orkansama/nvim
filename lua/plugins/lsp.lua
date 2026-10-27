@@ -33,16 +33,20 @@ if vim.fn.getcwd():find('api', 1, true) then
 end
 
 local telescope = require 'telescope.builtin'
+local telescopeThemes = require 'telescope.themes'
 
 vim.keymap.set('n', '<leader>gr', telescope.lsp_references, { desc = 'LSP References' })
 vim.keymap.set('n', '<leader>gd', telescope.lsp_definitions, { desc = 'LSP Definitions' })
+
+vim.keymap.set('n', '<leader>q', function()
+  telescope.diagnostics(telescopeThemes.get_ivy())
+end, { desc = 'LSP Error List' })
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
 vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP implementation' })
 vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, { desc = 'LSP Rename' })
 vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, { desc = 'LSP Action' })
 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'LSP Error List' })
 vim.keymap.set('n', '<leader>f', function()
   require('conform').format { async = true }
 end)
