@@ -10,6 +10,16 @@ vim.api.nvim_create_user_command('Cpname', function()
   vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
 
+vim.api.nvim_create_user_command('CopypathWithLine', function(opts)
+  local path_with_line = vim.fn.expand '%:.' .. ':' .. opts.line1
+  if opts.line1 ~= opts.line2 then
+    path_with_line = path_with_line .. '-' .. opts.line2
+  end
+  vim.fn.setreg('+', path_with_line)
+
+  vim.notify('Copied "' .. path_with_line .. '" to the clipboard!')
+end, { range = true })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank { timeout = 100 }
