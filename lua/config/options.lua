@@ -28,3 +28,4 @@ vim.opt.undofile = true
 
 vim.opt.showtabline = 2
 
+vim.opt.swapfile = false
