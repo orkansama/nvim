@@ -34,13 +34,7 @@ return {
       end, { desc = 'Search Live Grep' })
 
       vim.keymap.set('n', '<leader>sh', function()
-        builtin.help_tags {
-          layout_strategy = 'vertical',
-          sorting_strategy = 'ascending',
-          layout_config = {
-            prompt_position = 'top',
-          },
-        }
+        builtin.help_tags(themes.get_dropdown())
       end, { desc = 'Search Help Pages' })
 
       vim.keymap.set({ 'n', 'v' }, '<leader>ss', function()

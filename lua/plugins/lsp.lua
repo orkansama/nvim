@@ -35,8 +35,20 @@ end
 local telescope = require 'telescope.builtin'
 local telescopeThemes = require 'telescope.themes'
 
-vim.keymap.set('n', '<leader>gr', telescope.lsp_references, { desc = 'LSP References' })
-vim.keymap.set('n', '<leader>gd', telescope.lsp_definitions, { desc = 'LSP Definitions' })
+local telescopeOpts = {
+  layout_strategy = 'vertical',
+  sorting_strategy = 'ascending',
+  layout_config = {
+    prompt_position = 'top',
+  },
+}
+vim.keymap.set('n', '<leader>gr', function()
+  telescope.lsp_references(telescopeOpts)
+end, { desc = 'LSP References' })
+
+vim.keymap.set('n', '<leader>gd', function()
+  telescope.lsp_definitions(telescopeOpts)
+end, { desc = 'LSP Definitions' })
 
 vim.keymap.set('n', '<leader>q', function()
   telescope.diagnostics(telescopeThemes.get_ivy())
