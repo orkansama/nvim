@@ -4,6 +4,8 @@ vim.keymap.set('n', '<leader>cp', '<cmd>:Cppath<CR>')
 
 vim.keymap.set('n', '<leader>cn', '<cmd>:Cpname<CR>')
 
+vim.keymap.set('n', '<leader>cd', '<cmd>:Cpdir<CR>')
+
 vim.keymap.set({'n', 'v'}, '<leader>cl', ':CopypathWithLine<CR>')
 
 vim.keymap.set('n', '<Esc>', '<cmd>:nohlsearch<CR>')

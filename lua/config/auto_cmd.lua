@@ -1,3 +1,9 @@
+vim.api.nvim_create_user_command('Cpdir', function()
+  local path = vim.fn.expand '%:.:h'
+  vim.fn.setreg('+', path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
 vim.api.nvim_create_user_command('Cppath', function()
   local path = vim.fn.expand '%:.'
   vim.fn.setreg('+', path)
