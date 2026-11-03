@@ -43,11 +43,11 @@ local telescopeOpts = {
   },
 }
 vim.keymap.set('n', '<leader>gr', function()
-  telescope.lsp_references(telescopeOpts)
+  telescope.lsp_references(vim.deepcopy(telescopeOpts))
 end, { desc = 'LSP References' })
 
 vim.keymap.set('n', '<leader>gd', function()
-  telescope.lsp_definitions(telescopeOpts)
+  telescope.lsp_definitions(vim.deepcopy(telescopeOpts))
 end, { desc = 'LSP Definitions' })
 
 vim.keymap.set('n', '<leader>q', function()
