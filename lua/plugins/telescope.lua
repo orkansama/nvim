@@ -22,7 +22,9 @@ return {
         })
       end, { desc = 'Search Recent Files' })
 
-      vim.keymap.set('n', '<leader>sm', function()
+      vim.keymap.set('n', '<leader>sm', builtin.treesitter, { desc = 'Treesitter symbols' })
+
+      vim.keymap.set('n', '<leader>sM', function()
         builtin.treesitter {
           sorter = sorter.get_substr_matcher(),
           prompt_title = 'Treesitter (Sorted by Line Number)',
