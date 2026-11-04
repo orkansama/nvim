@@ -7,6 +7,11 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
+      require('telescope').setup {
+        extensions = { 'fzf' },
+      }
+      require('telescope').load_extension('fzf')
+
       local builtin = require 'telescope.builtin'
       local sorter = require 'telescope.sorters'
       local themes = require 'telescope.themes'
