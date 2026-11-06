@@ -51,7 +51,11 @@ vim.keymap.set('n', '<leader>gd', function()
 end, { desc = 'LSP Definitions' })
 
 vim.keymap.set('n', '<leader>q', function()
-  telescope.diagnostics(telescopeThemes.get_ivy())
+  telescope.diagnostics(telescopeThemes.get_ivy {
+    bufnr = 0,
+    disable_coordinates = true,
+    sort_by = 'severity',
+  })
 end, { desc = 'LSP Error List' })
 
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
