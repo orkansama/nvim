@@ -8,6 +8,27 @@ return {
         return last_search
       end
 
+      function check_if_api_session_is_active()
+        local debugger_window_name = 'term://.*dotnet'
+
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          local buf_name = vim.api.nvim_buf_get_name(buf)
+
+          if buf_name:find(debugger_window_name) then
+            return true
+          end
+        end
+      end
+
+      function dap_ui_attached()
+        if not package.loaded.dap then
+          return false
+        end
+
+        local session = require('dap').session()
+        return session ~= nil
+      end
+
       local git_blame = require 'gitblame'
       require('lualine').setup {
         options = {
@@ -19,6 +40,20 @@ return {
         },
         sections = {
           lualine_a = {
+            {
+              function()
+                return '󱂛'
+              end,
+              cond = check_if_api_session_is_active,
+              color = 'lualine_c_normal',
+            },
+            {
+              function()
+                return ''
+              end,
+              cond = dap_ui_attached,
+              color = 'lualine_c_normal',
+            },
             { 'mode', separator = { left = '', right = '' }, right_padding = 2 },
           },
           lualine_b = {
