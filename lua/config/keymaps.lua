@@ -41,11 +41,5 @@ local function lazykeys(keys)
 end
 vim.keymap.set('n', '<c-d>', lazykeys '<c-d>zz', { noremap = true, silent = true })
 
-vim.keymap.set('n', '}', '}zz', { silent = true })
-vim.keymap.set('n', '{', '{zz', { silent = true })
-
-vim.keymap.set('n', ')', ')zz', { silent = true })
-vim.keymap.set('n', '(', '(zz', { silent = true })
-
 vim.keymap.set('n', '+q', ':cnext<CR>zz', { desc = 'Next in Quickfix-List', silent = true })
 vim.keymap.set('n', 'üq', ':cprev<CR>zz', { desc = 'Prev in Quickfix-List', silent = true })
