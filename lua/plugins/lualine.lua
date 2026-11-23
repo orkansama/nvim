@@ -42,7 +42,7 @@ return {
           lualine_a = {
             {
               function()
-                return '󱂛'
+                return ''
               end,
               cond = check_if_api_session_is_active,
               color = 'lualine_c_normal',
