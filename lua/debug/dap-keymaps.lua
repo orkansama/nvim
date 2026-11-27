@@ -19,6 +19,8 @@ return function()
           if vim.api.nvim_win_is_valid(startApplication_terminal_win) then
             vim.api.nvim_win_close(startApplication_terminal_win, { force = true })
           end
+        elseif table.concat(data):find('The build failed.', 1, true) then
+          startApplication_terminal_job = nil
         end
       end,
     })
